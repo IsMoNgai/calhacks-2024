@@ -103,7 +103,7 @@ export default function Frameworks() {
 
   return (
     <main className="flex items-center justify-center min-h-screen">
-      <div className="bg-[#282828] text-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <div className="bg-white bg-opacity-50 rounded-xl shadow-md border border-solid border-opacity-30 p-12 m-4">
       <h1 className="text-3xl pb-2">Project Quiz</h1>
         <h2 className="text-md pb-2">Add Frameworks</h2>
         <form onSubmit={handleSubmit}>
@@ -134,8 +134,8 @@ export default function Frameworks() {
             )}
           </div>
           <div className="flex justify-center">
-          <button type="button" className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition duration-200" onClick={handleBack}>Back</button>
-          <button type="submit" className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition duration-200">Submit</button>
+          <button type="button" className="bg-purple-500 hover:bg-purple-600 text-white py-2 px-6 rounded transition duration-200" onClick={handleBack}>Back</button>
+          <button type="submit" className="bg-purple-500 hover:bg-purple-600 text-white py-2 px-6 rounded transition duration-200">Submit</button>
           </div>
         </form>
       </div>

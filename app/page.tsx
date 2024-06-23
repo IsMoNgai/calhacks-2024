@@ -76,30 +76,27 @@ export default function Home() {
   const debouncedGetUserRepos = useCallback(debounce(getUserRepos, 300), []);
 
   return (
-    <main className="flex items-center justify-center border-none">
+    <main className="flex items-center justify-center">
       {/* Replace video background with image */}
       <div className="image-container">
         <div className="fullscreen-image" />
         <div className="content-container">
-          <div className="container md:mt-32 border-none flex flex-col items-center justify-center h-full mx-auto opacity-80">
+          <div className="container flex flex-col items-center justify-center h-full mx-auto">
             {/* Remove h1 and h5 headers */}
-            <div className="github-form">
             <input
-              className="text-md rounded-full px-8 border-none py-4 mt-4"
-              placeholder="Enter GitHub Username"
+              className="bg-white rounded-full px-4 py-2 mt-4"
+              placeholder="Enter GitHub username"
               value={username}
               onChange={handleChange}
               required
             />
-            </div>
             {showDropdown && repos.length > 0 && (
-              <ul className="dropdown max-h-40 border-none overflow-y-auto">
+              <ul className="dropdown max-h-40 overflow-y-auto">
                 {repos.map((repo) => (
                   <li
                     key={repo.id}
                     onClick={() => handleRepoSelect(repo.name)}
-                    className="cursor-pointer py-2 px-4 border-none hover:bg-[#b6b1fb] rounded "
-
+                    className="cursor-pointer py-2 px-4 hover:bg-gray-200"
                   >
                     {repo.name}
                   </li>
@@ -111,7 +108,7 @@ export default function Home() {
                 <h3>Selected Repository: {selectedRepo}</h3>
                 <Link href="/quiz/1">
                   <button
-                    className="bg-purple-400 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     onClick={() => handleClick(`https://api.github.com/repos/${username}/${selectedRepo}`)}
                   >
                     Get Started
@@ -138,10 +135,6 @@ export default function Home() {
           overflow: hidden;
         }
 
-      .github-form {
-          
-      }
-
         .fullscreen-image {
           position: absolute;
           top: 0;
@@ -149,7 +142,6 @@ export default function Home() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          
         }
 
         .content-container {
@@ -162,38 +154,24 @@ export default function Home() {
           display: flex;
           align-items: center;
           justify-content: center;
-          
         }
         .container {
           max-width: 600px;
           text-align: center;
           padding: 50px;
           margin-top: 5%;
-          
-        
-          
         }
         .dropdown {
           list-style-type: none;
           padding: 0;
           margin: 0;
-          background: rgba(255, 255, 255, 0.2);
-          border-bottom-right-radius: 16px;
-          border-bottom-left-radius: 16px;
-          border-bottom-right-radius: 5px;
-          border-bottom-left-radius: 5px;
-          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-          backdrop-filter: blur(8.7px);
-          -webkit-backdrop-filter: blur(8.7px);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          
+          border: 1px solid #ccc;
         }
         .dropdown li {
           cursor: pointer;
-          
         }
         .dropdown li:hover {
-          
+          background-color: #f0f0f0;
         }
         .selected-repo {
           margin-top: 20px;

@@ -53,8 +53,8 @@ export default function Quiz() {
 
   return (
     <main className="flex items-center justify-center min-h-screen">
-      <div className="bg-[#282828] text-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-lg mb-4">When is the expected end date of your project?</h2>
+      <div className="bg-white bg-opacity-50 rounded-xl shadow-md border border-solid border-opacity-30 p-12 m-42">
+        <h2 className="text-lg coolor-white mb-4">When is the expected end date of your project?</h2>
         <form onSubmit={handleSubmit}>
           <input
             type="date"
@@ -64,8 +64,8 @@ export default function Quiz() {
             required
           />
           <div className="flex justify-between">
-            <button type="button" className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition duration-200" onClick={handleBack}>Back</button>
-            <button type="submit" className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition duration-200">Submit</button>
+            <button type="button" className="bg-purple-500 hover:bg-purple-600 text-white py-2 px-6 rounded transition duration-200" onClick={handleBack}>Back</button>
+            <button type="submit" className="bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded transition duration-200">Submit</button>
           </div>
         </form>
       </div>
