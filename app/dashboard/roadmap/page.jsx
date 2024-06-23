@@ -2,9 +2,9 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation.js';
-import Task from '../../components/task.jsx';
+import Task from '../../components/task.jsx';   
 import styles from '../../styles/Dashboard.roadmap.css';
-import generateTasks from '../../../tasks.js';
+import generateTasks from '../../tasks.js';
 
 const Page = () => {
   const router = useRouter();
@@ -51,8 +51,9 @@ const Page = () => {
   // Call the function with the formData values
   useEffect(() => {
     if (formData) {
+      console.log("bye")
       generateTasks({
-        repo: formData.repo,
+        name: formData.repo,
         details: formData.details,
         libraries: formData.frameworks,
         start_date: "2024-06-19", // Replace with actual start date

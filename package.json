@@ -12,6 +12,7 @@
     "axios": "^1.7.2",
     "chart.js": "^4.4.3",
     "chartjs-adapter-moment": "^1.0.1",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "firebase": "^10.12.2",
     "fluent-ffmpeg": "^2.1.3",
