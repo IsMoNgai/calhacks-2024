@@ -84,7 +84,7 @@ export default function Home() {
           <div className="container flex flex-col items-center justify-center h-full mx-auto">
             {/* Remove h1 and h5 headers */}
             <input
-              className="bg-white rounded-full px-4 py-2 mt-4"
+              className="bg-white rounded-full px-4 py-2 mt-48 mb-0"
               placeholder="Enter GitHub username"
               value={username}
               onChange={handleChange}
@@ -104,11 +104,10 @@ export default function Home() {
               </ul>
             )}
             {selectedRepo && (
-              <div className="selected-repo text-white mt-48">
-                <h3>Selected Repository: {selectedRepo}</h3>
+              <div className="selected-repo text-white mt-26">
                 <Link href="/quiz/1">
                   <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 m-0 t-5 rounded-large"
                     onClick={() => handleClick(`https://api.github.com/repos/${username}/${selectedRepo}`)}
                   >
                     Get Started
@@ -160,15 +159,26 @@ export default function Home() {
           text-align: center;
           padding: 50px;
           margin-top: 5%;
+          border-style:none;
         }
         .dropdown {
           list-style-type: none;
           padding: 0;
           margin: 0;
-          border: 1px solid #ccc;
+          border-style:none;
+          
         }
         .dropdown li {
           cursor: pointer;
+          border-style:none;
+          background: rgba(255, 255, 255, 0.17);
+          border-radius: 20px;
+          width: 13rem;
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(13.4px);
+          -webkit-backdrop-filter: blur(13.4px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+
         }
         .dropdown li:hover {
           background-color: #f0f0f0;
@@ -177,10 +187,13 @@ export default function Home() {
           margin-top: 20px;
         }
         button {
-          margin-top: 10px;
+          margin-top: 1rem;
+          
           padding: 10px 20px;
           font-size: 16px;
+          border-radius: 16px;
           cursor: pointer;
+          
         }
       `}</style>
     </main>
