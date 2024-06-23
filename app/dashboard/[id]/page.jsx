@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../../styles/Dashboard.module.css";
+import Roadmap from '../../components/roadmap'
 
 export default function Dashboard() {
   const [id, setId] = useState('');
@@ -58,6 +59,7 @@ export default function Dashboard() {
           <div className={`${styles.gridItem} ${styles.roadmap}`}>
             <h3>Roadmap</h3>
             <div className={styles.timeline}></div>
+            <Roadmap></Roadmap>
           </div>
         
 
