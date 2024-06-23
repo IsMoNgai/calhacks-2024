@@ -58,11 +58,14 @@ export default function Dashboard() {
             </div>
             <p className={styles.timer}>40 days 54 hours 20 minutes left</p>
           </div>
-          <div className={`${styles.gridItem} ${styles.roadmap}`}>
+          <div className={`${styles.gridItem} ${styles.Roadmaps}`}>
             <h3>Roadmap</h3>
-            <div className={styles.timeline}></div>
+            <img src="/map-ui.svg" alt="Map UI" />
             <Roadmap></Roadmap>
           </div>
+        
+
+        
          
           <div className={styles.gridRight}>
           <div className={`${styles.gridItem} ${styles.concentration}`}>
