@@ -17,6 +17,10 @@ h1, h2 {
   color: #eee;
 }
 
+label {
+  color: white;
+}
+
 h3 {
   padding-bottom: 2rem;
   color: #000105;
