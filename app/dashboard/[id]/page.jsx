@@ -1,50 +1,52 @@
-// Page.js
 'use client'
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import styles from "../../styles/Dashboard.module.css";
 
-const Page = ({ params }) => {
-  const [data, setData] = useState([]);
+export default function Dashboard() {
+  const [id, setId] = useState('');
+  const [formData, setFormData] = useState({});
+  const router = useRouter();
 
   useEffect(() => {
-    // Function to fetch data based on the uuid stored in the cookie
-    const uuid = params.id;
-    const savedFormData = getCookie('formData');
-    if (savedFormData) {
-      const formData = JSON.parse(savedFormData);
-      // Check if formData is an array before filtering
-      if (Array.isArray(formData)) {
-        const filteredData = formData.filter(item => item.id === uuid);
-        setData(filteredData);
-      } else if (typeof formData === 'object') {
-        // If formData is a single object, wrap it in an array
-        const filteredData = formData.id === uuid ? [formData] : [];
-        setData(filteredData);
-      } else {
-        console.error('formData is not an array or object:', formData);
-        setData([]);
-      }
+    const cookieFormData = getCookie('formData');
+    if (cookieFormData) {
+      const parsedFormData = JSON.parse(cookieFormData);
+      setFormData(parsedFormData);
+      setId(parsedFormData.id);
     } else {
-      setData([]);
+      router.push('/'); // Redirect to home if no cookie found
     }
-  }, [params.id]);
+  }, []);
 
-  // Function to get a cookie
   const getCookie = (name) => {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
   };
 
-  return (
-    <div>
-      <h1>User Input Data</h1>
-      <ul>
-        {data.map(item => (
-          <li key={item.id}>{JSON.stringify(item)}</li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+  const handleLogout = () => {
+    document.cookie = 'formData=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'; // Delete cookie
+    router.push('/'); // Redirect to home after logout
+  };
 
-export default Page;
+  return (
+    <main>
+      <div className={styles.container}>
+        <h1>Welcome to Dashboard</h1>
+        <div className={styles.grid}>
+          <div className={`${styles.gridItem} ${styles.item1}`}>Item 1</div>
+          <div className={styles.gridItem}>Item 2</div>
+          <div className={styles.gridItem}>Item 3</div>
+          <div className={styles.gridItem}>Item 4</div>
+          <div className={styles.gridItem}>Item 5</div>
+          <div className={styles.gridItem}>Item 6</div>
+          <div className={styles.gridItem}>Item 7</div>
+          <div className={styles.gridItem}>Item 8</div>
+          <div className={styles.gridItem}>Item 9</div>
+        </div>
+        <button className={styles.logoutBtn} onClick={handleLogout}>Logout</button>
+      </div>
+    </main>
+  );
+}
