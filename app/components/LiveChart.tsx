@@ -82,7 +82,7 @@ const LiveChart: React.FC<LiveChartProps> = ({ data }) => {
   }, [data]);
 
   return (
-    <div className="">
+    <div className="chart-container">
       <Line ref={chartRef} data={chartData} options={chartOptions} />
     </div>
   );

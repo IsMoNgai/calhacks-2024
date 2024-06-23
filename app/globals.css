@@ -1,24 +1,24 @@
 * {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   padding: 0;
   margin: 0;
 }
 
-html, body {
+/* html, body {
   overflow-x: hidden;
   background-color: #000925;
   color: white;
-}
+} */
 
-div {
+/* div {
   color: white;
-}
+} */
 
-main {
+/* main {
   padding: 1rem;
-}
+} */
 
-h1, h2 {
+/* h1, h2 {
   color: #eee;
 }
 
@@ -30,9 +30,9 @@ h3 {
   padding-bottom: 2rem;
   color: white;
   font-size: 1.8rem;
-}
+} */
 
-button {
+/* button {
   padding: 16px 8px;
   width: 100%;
   margin-top: 12px;
@@ -41,6 +41,20 @@ button {
   cursor: pointer;
   background-color: #808080;
   color: #f8f8f8;
+} */
+
+canvas {
+  /* border: 1px dotted red; */
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 80vh; 
+  width: 40vw;
 }
 
 .btn-disabled {
