@@ -1,14 +1,14 @@
-'use client'
 // pages/dashboard/timeline/Page.jsx
-
-import React, { useEffect } from 'react';
+'use client'
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation.js';
-import Task from '../../components/task.jsx'
-import styles from '../../styles/Dashboard.roadmap.css'
-import generateTasks from '../../../tasks.js'
+import Task from '../../components/task.jsx';
+import styles from '../../styles/Dashboard.roadmap.css';
+import generateTasks from '../../../tasks.js';
 
 const Page = () => {
   const router = useRouter();
+  const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     const elH = document.querySelectorAll(".timeline li > div");
@@ -28,12 +28,6 @@ const Page = () => {
       el[i].style.height = `${counter}px`;
     }
   };
-
-  const tasks = [
-    { id: 1, time: '1934', title: 'Title 1', description: 'Description 1' },
-    { id: 2, time: '1937', title: 'Title 2', description: 'Description 2' },
-    { id: 3, time: '1940', title: 'Title 3', description: 'Description 3' },
-  ];
 
   useEffect(() => {
     const cookieTasks = getCookie('dashboardTasks'); // Retrieve tasks from cookie
@@ -55,13 +49,23 @@ const Page = () => {
   const formData = JSON.parse(formDataCookie);
 
   // Call the function with the formData values
-  generateTasks({
-    repo: formData.repo,
-    details: formData.details,
-    libraries: formData.frameworks,
-    start_date: "2024-06-19", // Replace with actual start date
-    end_date: formData.endDate
-  });
+  useEffect(() => {
+    if (formData) {
+      generateTasks({
+        repo: formData.repo,
+        details: formData.details,
+        libraries: formData.frameworks,
+        start_date: "2024-06-19", // Replace with actual start date
+        end_date: formData.endDate
+      }).then(tasks => {
+        // Assuming tasks is an array, update the state
+        setTasks(tasks);
+      }).catch(error => {
+        console.error('Error generating tasks:', error);
+        // Handle error appropriately
+      });
+    }
+  }, [formData]);
 
   return (
     <div>

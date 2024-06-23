@@ -180,7 +180,7 @@ async function generateTasks({name,details,libraries,start_date,end_date}){
         console.log(output["subtaskLinks"][i]);
         console.log(output["deadlineList"][i]);
     }
-    return output["taskList"],output["subtaskList"],output["subtaskLinks"],output["deadlineList"];
+    // return output["taskList"],output["subtaskList"],output["subtaskLinks"],output["deadlineList"];
 }
 
 export default generateTasks;

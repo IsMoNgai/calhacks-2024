@@ -5,7 +5,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  background-image: url('/Users/reinesana/Desktop/projects/calhacks-2024/public/home.svg');
+  background-image: url('../../public/home.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
