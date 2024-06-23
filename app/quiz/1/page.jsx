@@ -54,8 +54,7 @@ export default function Quiz() {
   return (
     <main>
       <div className="container">
-        <h1>Project Quiz</h1>
-        <h2>When is the expected end date of your project?</h2>
+        <h2 className="max-w-300px">When is the expected end date of your project?</h2>
         <form onSubmit={handleSubmit}>
           <input
             type="date"
@@ -71,7 +70,8 @@ export default function Quiz() {
       </div>
       <style jsx>{`
         .container {
-          max-width: 600px;
+          justifyContent: center;
+          max-width: 1000px;
           margin: 0 auto;
           text-align: center;
           padding: 50px;

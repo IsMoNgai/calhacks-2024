@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import Task from '../../../components/task';
+import Task from '../../components/task.jsx';
 import styles from "../../styles/Dashboard.roadmap.css";
 
 const Page = () => {
