@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -52,45 +52,23 @@ export default function Quiz() {
   };
 
   return (
-    <main>
-      <div className="container">
-        <h2 className="max-w-300px">When is the expected end date of your project?</h2>
+    <main className="flex items-center justify-center min-h-screen">
+      <div className="bg-[#282828] text-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 className="text-lg mb-4">When is the expected end date of your project?</h2>
         <form onSubmit={handleSubmit}>
           <input
             type="date"
             value={endDate}
             onChange={handleChange}
+            className="bg-gray-700 text-white p-2 rounded-md mb-4"
             required
           />
-          <div className="buttons">
-            <button type="button" onClick={handleBack}>Back</button>
-            <button type="submit">Submit</button>
+          <div className="flex justify-between">
+            <button type="button" className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition duration-200" onClick={handleBack}>Back</button>
+            <button type="submit" className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition duration-200">Submit</button>
           </div>
         </form>
       </div>
-      <style jsx>{`
-        .container {
-          justifyContent: center;
-          max-width: 1000px;
-          margin: 0 auto;
-          text-align: center;
-          padding: 50px;
-        }
-        input {
-          margin-top: 20px;
-          padding: 10px;
-          font-size: 16px;
-        }
-        .buttons {
-          margin-top: 20px;
-        }
-        button {
-          margin: 10px;
-          padding: 10px 20px;
-          font-size: 16px;
-          cursor: pointer;
-        }
-      `}</style>
     </main>
   );
 }
