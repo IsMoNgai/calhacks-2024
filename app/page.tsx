@@ -76,22 +76,15 @@ export default function Home() {
   const debouncedGetUserRepos = useCallback(debounce(getUserRepos, 300), []);
 
   return (
-    <main>
-      <div className="video-container">
-        <video
-          autoPlay
-          muted
-          loop
-          className="fullscreen-video"
-        >
-          <source src="/blackhole.webm" type="video/webm" />
-        </video>
+    <main className="flex items-center justify-center">
+      {/* Replace video background with image */}
+      <div className="image-container">
+        <div className="fullscreen-image" />
         <div className="content-container">
           <div className="container flex flex-col items-center justify-center h-full mx-auto">
-            <h1 className="text-white text-48xl font-bold mb-4">Project Name</h1>
-            <h2 className="text-white text-2xl mb-8">Try It</h2>
+            {/* Remove h1 and h5 headers */}
             <input
-              className="bg-white rounded-full px-4 py-2 mb-4"
+              className="bg-white rounded-full px-4 py-2 mt-4"
               placeholder="Enter GitHub username"
               value={username}
               onChange={handleChange}
@@ -111,7 +104,7 @@ export default function Home() {
               </ul>
             )}
             {selectedRepo && (
-              <div className="selected-repo text-white mt-4">
+              <div className="selected-repo text-white mt-48">
                 <h3>Selected Repository: {selectedRepo}</h3>
                 <Link href="/quiz/1">
                   <button
@@ -130,13 +123,19 @@ export default function Home() {
         .Home {
             overflow: hidden;
         }
-        .video-container {
-          position: relative;
+        .image-container {
+          background-image: url('/hero-page.svg'); 
+          background-size: cover;
           width: 100vw;
           height: 100vh;
+          margin:0;
+          padding:0;
+
+       
           overflow: hidden;
         }
-        .fullscreen-video {
+
+        .fullscreen-image {
           position: absolute;
           top: 0;
           left: 0;
@@ -144,10 +143,12 @@ export default function Home() {
           height: 100%;
           object-fit: cover;
         }
+
         .content-container {
           position: absolute;
           top: 0;
           left: 0;
+
           width: 100%;
           height: 100%;
           display: flex;
