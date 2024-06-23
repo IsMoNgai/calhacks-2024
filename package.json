@@ -12,6 +12,7 @@
     "axios": "^1.7.2",
     "firebase": "^10.12.2",
     "next": "14.2.4",
+    "node-fetch": "^3.3.2",
     "react": "^18",
     "react-dom": "^18",
     "styled-components": "^6.1.11",
