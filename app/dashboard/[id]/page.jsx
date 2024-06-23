@@ -31,22 +31,66 @@ export default function Dashboard() {
   };
 
   return (
-    <main>
+    <main className={styles.main}>
       <div className={styles.container}>
-        <h1>Welcome to Dashboard</h1>
+        <h1 className={styles.title}>Repository Name</h1>
+        <h2 className={styles.subtitle}>Welcome Name</h2>
         <div className={styles.grid}>
-          <div className={`${styles.gridItem} ${styles.item1}`}>Item 1</div>
-          <div className={styles.gridItem}>Item 2</div>
-          <div className={styles.gridItem}>Item 3</div>
-          <div className={styles.gridItem}>Item 4</div>
-          <div className={styles.gridItem}>Item 5</div>
-          <div className={styles.gridItem}>Item 6</div>
-          <div className={styles.gridItem}>Item 7</div>
-          <div className={styles.gridItem}>Item 8</div>
-          <div className={styles.gridItem}>Item 9</div>
+
+
+
+          
+          <div className={`${styles.gridItem} ${styles.documentation}`}>
+            <h3>Documentation</h3>
+            <p>Description of this tool</p>
+          </div>
+          <div className={`${styles.gridItem} ${styles.progress}`}>
+            <div className={styles.circle}>
+              <span>9/23</span>
+            </div>
+            <div className={styles.labels}>
+              <span className={styles.easy}>Easy</span>
+              <span className={styles.medium}>Medium</span>
+              <span className={styles.hard}>Hard</span>
+            </div>
+            <p className={styles.timer}>40 days 54 hours 20 minutes left</p>
+          </div>
+          <div className={`${styles.gridItem} ${styles.roadmap}`}>
+            <h3>Roadmap</h3>
+            <div className={styles.timeline}></div>
+          </div>
+        
+
+        
+         
+          <div className={styles.gridRight}>
+          <div className={`${styles.gridItem} ${styles.concentration}`}>
+            <h3>Concentration Level</h3>
+            <div className={styles.chart}></div>
+          </div>
+          <div className={`${styles.gridItem} ${styles.voiceAi}`}>
+            <h3>Voice AI</h3>
+            <div className={styles.voiceMetrics}>
+              <div className={styles.metric}>
+                <span>Concentration</span>
+                <span className={styles.dotYellow}></span>
+              </div>
+              <div className={styles.metric}>
+                <span>Boredom</span>
+                <span className={styles.dotBlue}></span>
+              </div>
+              <div className={styles.notification}>
+                <span>Notification</span>
+              </div>
+            </div>
+            </div>
+          </div>
         </div>
-        <button className={styles.logoutBtn} onClick={handleLogout}>Logout</button>
+        
       </div>
+      
     </main>
   );
 }
+
+

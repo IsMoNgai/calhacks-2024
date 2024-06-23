@@ -1,40 +1,200 @@
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 50px;
-  }
-  
-  .grid {
-    display: grid;
-    grid-template-rows: repeat(6, 1fr);
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
-    margin-top: 30px;
-  }
-  
-  .gridItem {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    padding: 20px;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .item1 {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
 
-  }
+
+
+.main {
+  display: flex;
+  justify-content: flex-start; /* Adjusted from 'left' */
+  align-items: flex-start; /* Adjusted from 'left' */
+  background-image: url('/Users/reinesana/Desktop/projects/calhacks-2024/public/home.svg');
+  background-position: cover;
+  color: #ffffff;
+  min-height: 100vh;
+  background-size: cover; /* Cover ensures the image covers the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent background image from repeating */
+  min-height: 100vh;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Adjusted from 'left' */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /* Center align and add margins */
+
+}
+
+.title {
+  font-size: 2em;
+  grid-column: span 1/4; 
+  grid-row: span 1/2; 
+}
+
+.gridRight {
+  grid-row: 1; /* Second row in the grid */
+  background-color: #333; /* Example background color */
+  padding: 20px;
+}
+
+
+
+.subtitle {
+  font-size: 1.2em;
+  margin-bottom: 1em;
   
-  .logoutBtn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  width: 100%;
   
+}
+
+.gridItem {
+  border-radius: 25px;
+  padding: 20px; /* Example padding */
+  margin-top: 10px; /* Example margin */
+  margin-bottom: 10px; /* Example margin */
+}
+
+
+.documentation {
+  background: linear-gradient(279deg, rgba(24, 27, 46, 0.50) 0%, rgba(72.22, 33, 86, 0.50) 33%, rgba(86.49, 74.15, 142.50, 0.50) 100%);
+  box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.10) inset;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-top: 20px; 
+  grid-row-start: 1;
+  grid-column-start: 1;
+}
+
+.gridRight {
+  background: linear-gradient(178deg, #181B2E 0%, #292449 9%, #2C315F 24%, #242949 43%, #1C1E37 62%, #141527 100%);
+
+}
+
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Added margin for spacing */
+  grid-row-start: 1;
+  grid-column-start: 2;
+}
+
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.easy, .medium, .hard {
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  background: #444;
+}
+
+.timer {
+  font-size: 0.8em;
+}
+
+.roadmap {
+  background: linear-gradient(279deg, rgba(24, 27, 46, 0.50) 0%, rgba(72.22, 33, 86, 0.50) 33%, rgba(86.49, 74.15, 142.50, 0.50) 100%);
+  box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.10) inset;
+  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  
+  
+
+}
+
+.timeline {
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(90deg, #ff00ff 50%, #2d2d2d 50%);
+  border-radius: 10px;
+  margin-top: 20px; /* Added margin for spacing */
+}
+
+
+
+
+
+
+.concentration {
+  grid-column-start: 3;
+  grid-row-start:1;
+}
+
+.chart {
+  height: 200px;
+  background: #333;
+}
+
+.voiceAi {
+  grid-column-start: 3;
+  grid-row-start: 2;
+
+}
+
+.voiceMetrics {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dotYellow, .dotBlue {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dotYellow {
+  background: yellow;
+}
+
+.dotBlue {
+  background: blue;
+}
+
+.notification {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoutBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #ff00ff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
