@@ -1,5 +1,4 @@
 'use client'
-
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { v4 as uuidv4 } from 'uuid';
@@ -9,7 +8,6 @@ function generateRandomUUID() {
 }
 
 export default function Home() {
-
   const [username, setUsername] = useState('');
   const [repos, setRepos] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -79,51 +77,104 @@ export default function Home() {
 
   return (
     <main>
-      <div className="container">
-        <h1>Project Name</h1>
-        <h2>Try It</h2>
-        <input
-          placeholder="Enter GitHub username"
-          value={username}
-          onChange={handleChange}
-          required
-        />
-        {showDropdown && repos.length > 0 && (
-          <ul className="dropdown">
-            {repos.map((repo) => (
-              <li key={repo.id} onClick={() => handleRepoSelect(repo.name)}>
-                {repo.name}
-              </li>
-            ))}
-          </ul>
-        )}
-        {selectedRepo && (
-          <div className="selected-repo">
-            <h3>Selected Repository: {selectedRepo}</h3>
-            <Link href="/quiz/1">
-              <button onClick={() => handleClick(`https://api.github.com/repos/${username}/${selectedRepo}`)}>Get Started</button>
-            </Link> 
+      <div className="video-container">
+        <video
+          autoPlay
+          muted
+          loop
+          className="fullscreen-video"
+        >
+          <source src="/blackhole.webm" type="video/webm" />
+        </video>
+        <div className="content-container">
+          <div className="container flex flex-col items-center justify-center h-full mx-auto">
+            <h1 className="text-white text-48xl font-bold mb-4">Project Name</h1>
+            <h2 className="text-white text-2xl mb-8">Try It</h2>
+            <input
+              className="bg-white rounded-full px-4 py-2 mb-4"
+              placeholder="Enter GitHub username"
+              value={username}
+              onChange={handleChange}
+              required
+            />
+            {showDropdown && repos.length > 0 && (
+              <ul className="dropdown max-h-40 overflow-y-auto">
+                {repos.map((repo) => (
+                  <li
+                    key={repo.id}
+                    onClick={() => handleRepoSelect(repo.name)}
+                    className="cursor-pointer py-2 px-4 hover:bg-gray-200"
+                  >
+                    {repo.name}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {selectedRepo && (
+              <div className="selected-repo text-white mt-4">
+                <h3>Selected Repository: {selectedRepo}</h3>
+                <Link href="/quiz/1">
+                  <button
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={() => handleClick(`https://api.github.com/repos/${username}/${selectedRepo}`)}
+                  >
+                    Get Started
+                  </button>
+                </Link>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
       <style jsx>{`
+        .Home {
+            overflow: hidden;
+        }
+        h1 {
+          font-size: 10em;
+          max-width: 100em;
+        }
+        h2{
+          font-size: 10em;
+          max-width: 100em;
+        }
+        .video-container {
+          position: relative;
+          width: 100vw;
+          height: 100vh;
+          overflow: hidden;
+        }
+        .fullscreen-video {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .content-container {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
         .container {
           max-width: 600px;
-          margin: 0 auto;
           text-align: center;
           padding: 50px;
+          margin-top: 5%;
         }
         .dropdown {
           list-style-type: none;
           padding: 0;
           margin: 0;
           border: 1px solid #ccc;
-          max-height: 200px;
-          overflow-y: auto;
-          margin-top: 10px;
         }
         .dropdown li {
-          padding: 10px;
           cursor: pointer;
         }
         .dropdown li:hover {
