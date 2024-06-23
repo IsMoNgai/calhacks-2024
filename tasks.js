@@ -106,11 +106,10 @@ async function projectAiTasksCall({name,details,libraries,start_date,end_date}) 
     for(let i = 0; i < difficultyList.length; i++){
         let currentDayRatio = (difficultyList[i]/sumOfDifficulties);
         currentDayRatio = Math.floor(currentDayRatio*totalDays);
-        const currentDeadline = startDate.add(currentDayRatio, 'days');
+        let currentDeadline = startDate.add(currentDayRatio, 'days');
         if(difficultyList.length==i+1 && currentDeadline!=endDate){
-            let extra = endDate - currentDeadline;
-            console.log("total days "+extra.totalDays);
-            currentDeadline = currentDeadline(extra.totalDays,'days');
+            let extra = Math.floor((endDate - currentDeadline) / (1000 * 60 * 60 * 24));
+            currentDeadline = currentDeadline.add(extra,'days');
         }
         deadlineList.push(currentDeadline.format("YYYY-MM-DD"));
     }
