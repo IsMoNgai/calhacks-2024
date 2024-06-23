@@ -1,6 +1,6 @@
 // components/LiveChart.tsx
 import React, { useEffect, useRef } from 'react';
-import { Line } from 'react-chartjs-2';
+import { Line,  } from 'react-chartjs-2';
 import 'chartjs-adapter-moment';
 import {
   Chart as ChartJS,
@@ -12,9 +12,10 @@ import {
   Tooltip,
   Legend,
   TimeScale,
+  Filler,
 } from 'chart.js';
 
-ChartJS.register(LineElement, PointElement, CategoryScale, LinearScale, Title, Tooltip, Legend, TimeScale);
+ChartJS.register(LineElement, PointElement, CategoryScale, LinearScale, Title, Tooltip, Legend, TimeScale, Filler);
 
 interface LiveChartProps {
   data: number[];

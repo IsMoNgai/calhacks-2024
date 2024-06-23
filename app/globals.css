@@ -134,3 +134,9 @@ li {
 .container p {
   padding: 8px 0;
 }
+
+.modal-bg {
+  background: rgb(49,6,84);
+  background: radial-gradient(circle, rgba(49,6,84,1) 0%, rgba(0,0,0,1) 100%);
+
+}

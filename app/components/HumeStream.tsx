@@ -3,6 +3,7 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client';
 import LiveChart from './LiveChart';
+import Modal from './Modal';
 
 const socket = io('http://localhost:5000');
 
@@ -11,15 +12,20 @@ export default function HumeStream() {
   const canvasRef: MutableRefObject<HTMLCanvasElement> = useRef(document.createElement('canvas'));
   const intervalRef: MutableRefObject<NodeJS.Timeout | null> = useRef(null);
   const [concentrationMetrics, setConcentrationMetrics] = useState<number[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control the modal
+
 
   useEffect(() => {
     socket.on('connect', () => {
       console.log('Connected to server');
     });
 
-    socket.on('adhd_emotions', (data: { Concentration: number }) => {
+    socket.on('adhd_emotions', (data: { Concentration: number; Boredom: number; Anxiety: number; Tiredness: number }) => {
       console.log('ADHD emotions:', data);
       setConcentrationMetrics(prevMetrics => [...prevMetrics, data.Concentration].slice(-60)); // Keep only the last 60 minutes of data
+      if (data.Boredom > 0.64) {
+        setIsModalOpen(true); // Open the modal if Boredom is greater than 0.68
+      }
     });
 
     socket.on('error', (error: any) => {
@@ -70,6 +76,9 @@ export default function HumeStream() {
     }
   };
 
+  const closeModal = () => setIsModalOpen(false); // Function to close the modal
+
+
   return (
     <div className=''>
         {/* className="p-4" */}
@@ -80,6 +89,10 @@ export default function HumeStream() {
         <div className="">
           <LiveChart data={concentrationMetrics} />
         </div>
+        <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <h1 className="text-4xl pb-8 tracking-wide font-semibold">High Boredom Alert!</h1>
+        <h2 className='text-xl pb-4'>You seem like you need some assistance. Consider taking a break or letting me help you!</h2>
+      </Modal>
       {/* </div> */}
     </div>
   );
