@@ -17,10 +17,12 @@
     "node-fetch": "^3.3.2",
     "react": "^18",
     "react-dom": "^18",
+    "simplex-noise": "^4.0.1",
     "socket.io-client": "^4.7.5",
-    "ws": "^8.17.1",
     "styled-components": "^6.1.11",
-    "uuid": "^10.0.0"
+    "three": "^0.165.0",
+    "uuid": "^10.0.0",
+    "ws": "^8.17.1"
   },
   "devDependencies": {
     "@types/node": "^20",
