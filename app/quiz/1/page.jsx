@@ -60,7 +60,7 @@ export default function Quiz() {
             type="date"
             value={endDate}
             onChange={handleChange}
-            className="bg-gray-700 text-white p-2 rounded-md mb-4"
+            className="bg-gray-200 text-black p-2 rounded-md mb-4"
             required
           />
           <div className="flex justify-between">

@@ -102,10 +102,10 @@ export default function Frameworks() {
   };
 
   return (
-    <main>
-      <div className="container">
-        <h1>Project Quiz</h1>
-        <h2>Add Frameworks</h2>
+    <main className="flex items-center justify-center min-h-screen">
+      <div className="bg-[#282828] text-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <h1 className="text-3xl pb-2">Project Quiz</h1>
+        <h2 className="text-md pb-2">Add Frameworks</h2>
         <form onSubmit={handleSubmit}>
           <div className="frameworks-input">
             {selectedFrameworks.map((framework, index) => (
@@ -115,25 +115,27 @@ export default function Frameworks() {
               </div>
             ))}
             <input
+            className="rounded-lg text-black"
               type="text"
               value={frameworkInput}
               onChange={handleInputChange}
               onKeyDown={handleKeyDown}
               placeholder="Add Frameworks"
             />
+
             {showDropdown && frameworks.length > 0 && (
               <ul className="dropdown">
                 {frameworks.map((framework, index) => (
-                  <li key={index} onClick={() => handleFrameworkSelect(framework)}>
+                  <li className="text-black border-none" key={index} onClick={() => handleFrameworkSelect(framework)}>
                     {framework}
                   </li>
                 ))}
               </ul>
             )}
           </div>
-          <div className="buttons">
-            <button type="button" onClick={handleBack}>Back</button>
-            <button type="submit">Submit</button>
+          <div className="flex justify-center">
+          <button type="button" className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition duration-200" onClick={handleBack}>Back</button>
+          <button type="submit" className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition duration-200">Submit</button>
           </div>
         </form>
       </div>
