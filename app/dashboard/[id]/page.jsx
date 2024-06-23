@@ -8,6 +8,13 @@ export default function Dashboard() {
   const [id, setId] = useState('');
   const [formData, setFormData] = useState({});
   const router = useRouter();
+  generateTasks({
+    name: "Project Name", // Replace with actual project name
+    details: formData.details,
+    libraries: formData.frameworks,
+    start_date: "2024-06-19", // Replace with actual start date
+    end_date: formData.endDate
+  });
 
   useEffect(() => {
     const cookieFormData = getCookie('formData');

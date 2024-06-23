@@ -1,8 +1,8 @@
-import dotenv from dotenv;
 import Groq from "groq-sdk";
 
-const groq = new Groq({ apiKey: dotenv.GROQ_API_KEY });
-
+const groq = new Groq({
+    apiKey: toString(process.env.GROQ_API_KEY), dangerouslyAllowBrowser: true
+  });
 async function groqSubtasks(task) {
     const subtaskList = [];
     const completion = await groq.chat.completions
@@ -63,7 +63,7 @@ async function groqSubtaskLinks(input) {
 
 // Import OpenAI SDK and create a new OpenAI client
 import OpenAI from "openai";
-const openai = new OpenAI({apiKey: dotenv.OPENAI_API_KEY});
+const openai = new OpenAI({apiKey: toString(process.env.OPENAI_API_KEY), dangerouslyAllowBrowser: true});
 
 import moment from "moment";
 
@@ -173,7 +173,7 @@ async function projectAiTasksCall({name,details,libraries,start_date,end_date}) 
 }
 
 async function generateTasks({name,details,libraries,start_date,end_date}){
-    const output = await projectAiTasksCall(name,details,libraries,start_date,en);
+    const output = await projectAiTasksCall(name,details,libraries,start_date,end_date);
     for(let i = 0; i < output["taskList"].length; i++){
         console.log(output["taskList"][i]);
         console.log(output["subtaskList"][i]);
@@ -182,3 +182,5 @@ async function generateTasks({name,details,libraries,start_date,end_date}){
     }
     return output["taskList"],output["subtaskList"],output["subtaskLinks"],output["deadlineList"];
 }
+
+export default generateTasks;
