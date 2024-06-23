@@ -47,17 +47,12 @@ export default function Dashboard() {
             <h3>Documentation</h3>
             <p>Description of this tool</p>
           </div>
+
           <div className={`${styles.gridItem} ${styles.progress}`}>
-            <div className={styles.circle}>
-              <span>9/23</span>
-            </div>
-            <div className={styles.labels}>
-              <span className={styles.easy}>Easy</span>
-              <span className={styles.medium}>Medium</span>
-              <span className={styles.hard}>Hard</span>
-            </div>
-            <p className={styles.timer}>40 days 54 hours 20 minutes left</p>
+            <img src="/task-chart.svg" alt="Task Chart" />   
           </div>
+
+
           <div className={`${styles.gridItem} ${styles.Roadmaps}`}>
             <h3>Roadmap</h3>
             <img src="/map-ui.svg" alt="Map UI" />

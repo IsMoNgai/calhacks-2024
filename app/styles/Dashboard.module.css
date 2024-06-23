@@ -31,13 +31,14 @@
   grid-column: 1 / 4;  /* Adjust as needed */
   grid-row: 2;     /* Adjust as needed */
   justify-self: start;
+  right: 30vw;
 }
 
 .gridRight {
   grid-row: 1; /* Second row in the grid */
   background-color: #333; /* Example background color */
   padding: 0;
-  margin:0;
+  margin-right: 20vw;
   
 
 }
@@ -80,7 +81,7 @@
   display: flex;
   flex-direction: column;
   align-items: left;
-  margin-top: 20px; 
+  margin-top: 25px; 
   margin-left: -2vw;
   grid-row-start: 1;
   grid-column-start: 1;
@@ -96,44 +97,27 @@
 
 
 .progress {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: -2vw; /* Added margin for spacing */
+
   grid-row-start: 1;
-  margin-right: 10vw; 
   grid-column-start: 2;
-  top: 5vw;
+  grid-column-end: 3;
+  position: relative; /* Ensure it positions elements relatively */
+  width: 55vw;
+  height: 18vw;
+  margin:0;
+  padding:5vw;
+  bottom: 5vw;
+  left: -3vw;
+  top:-4vw;
 }
 
+.progress img {
+  width: 55%;
+   /* Ensure the image fits within the container */
+  height: auto; /* Maintain aspect ratio */
 
-.circle {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5em;
-  margin-bottom: 1em;
 }
 
-.labels {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 1em;
-}
-
-.easy, .medium, .hard {
-  padding: 0.5em 1em;
-  border-radius: 5px;
-  background: #444;
-}
-
-.timer {
-  font-size: 0.8em;
-}
 
 .Roadmaps {
   background: linear-gradient(279deg, rgba(24, 27, 46, 0.50) 0%, rgba(72.22, 33, 86, 0.50) 33%, rgba(86.49, 74.15, 142.50, 0.50) 100%);
@@ -142,12 +126,13 @@
   grid-column-start: 1;
   grid-column-end: 3;
   position: relative; /* Ensure it positions elements relatively */
-  width: 55vw;
-  height: 18vw;
+  width: 57vw;
+  height: 20vw;
   margin:0;
   padding:5vw;
   bottom: 5vw;
   left: -2vw;
+  top: -12vw;
 
 }
 
