@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../../styles/Dashboard.module.css";
-import Roadmap from '../../components/roadmap'
 
 export default function Dashboard() {
   const [id, setId] = useState('');
@@ -56,12 +55,17 @@ export default function Dashboard() {
             </div>
             <p className={styles.timer}>40 days 54 hours 20 minutes left</p>
           </div>
-          <div className={`${styles.gridItem} ${styles.roadmap}`}>
+          <div className={`${styles.gridItem}`}>
             <h3>Roadmap</h3>
-            <div className={styles.timeline}></div>
-            <Roadmap></Roadmap>
+            <div className={styles.map-ui}></div>
+            <a href="/dashboard/roadmap"Roadmaps></a>
+          
           </div>
         
+<<<<<<< Updated upstream
+=======
+   
+>>>>>>> Stashed changes
          
           <div className={styles.gridRight}>
           <div className={`${styles.gridItem} ${styles.concentration}`}>
