@@ -3,39 +3,39 @@
 
 .main {
   display: flex;
-  justify-content: flex-start; /* Adjusted from 'left' */
-  align-items: flex-start; /* Adjusted from 'left' */
+  justify-content: flex-start;
+  align-items: flex-start;
   background-image: url('/Users/reinesana/Desktop/projects/calhacks-2024/public/home.svg');
-  background-position: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #ffffff;
   min-height: 100vh;
-  background-size: cover; /* Cover ensures the image covers the entire container */
-  background-position: center; /* Center the background image */
-  background-repeat: no-repeat; /* Prevent background image from repeating */
-  min-height: 100vh;
 }
-
 
 .container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Adjusted from 'left' */
+  align-items: center; /* Adjusted to center items */
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto; /* Center align and add margins */
-
+  margin: 0 auto;
+  padding: 0; /* Adjusted to reset padding */
 }
+
 
 .title {
   font-size: 2em;
   grid-column: span 1/4; 
   grid-row: span 1/2; 
+
 }
 
 .gridRight {
   grid-row: 1; /* Second row in the grid */
   background-color: #333; /* Example background color */
-  padding: 20px;
+  padding: 0;
+  margin:0;
 }
 
 
@@ -50,7 +50,8 @@
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
+  gap: 20px;
+  margin:10px;
   width: 100%;
   
 }
@@ -76,7 +77,6 @@
 
 .gridRight {
   background: linear-gradient(178deg, #181B2E 0%, #292449 9%, #2C315F 24%, #242949 43%, #1C1E37 62%, #141527 100%);
-
 }
 
 
@@ -124,6 +124,7 @@
   grid-row-start: 2;
   grid-column-start: 1;
   grid-column-end: 3;
+  margin: 10px;
   
   
 
