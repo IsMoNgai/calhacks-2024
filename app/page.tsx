@@ -130,14 +130,6 @@ export default function Home() {
         .Home {
             overflow: hidden;
         }
-        h1 {
-          font-size: 10em;
-          max-width: 100em;
-        }
-        h2{
-          font-size: 10em;
-          max-width: 100em;
-        }
         .video-container {
           position: relative;
           width: 100vw;
