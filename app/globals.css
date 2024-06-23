@@ -1,7 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
 * {
   /* box-sizing: border-box; */
   padding: 0;
   margin: 0;
+}
+
+body {
+  background-color: #000925;
 }
 
 /* html, body {
@@ -42,6 +53,20 @@ h3 {
   background-color: #808080;
   color: #f8f8f8;
 } */
+
+canvas {
+  /* border: 1px dotted red; */
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 80vh; 
+  width: 40vw;
+}
 
 canvas {
   /* border: 1px dotted red; */
