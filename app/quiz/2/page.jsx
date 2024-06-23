@@ -45,21 +45,21 @@ export default function Details() {
   };
 
   return (
-    <main>
-      <div className="container">
-        <h1>Project Quiz</h1>
-        <h2>Please provide details about your project:</h2>
+    <main className="flex items-center justify-center min-h-screen">
+      <div className="bg-[#282828] text-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <h1 className="text-2xl mb-4">Project Quiz</h1>
+        <h2 className="text-lg mb-2">Please provide details about your project:</h2>
         <form onSubmit={handleSubmit}>
-          <textarea
+          <textarea className="text-black rounded-md"
             rows="10"
-            cols="50"
+            cols="40"
             value={details}
             onChange={handleChange}
             required
           />
-          <div className="buttons">
-            <button type="button" onClick={handleBack}>Back</button>
-            <button type="submit">Submit</button>
+          <div className="flex items-center justify-center mt-4">
+          <button type="button" className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition duration-200" onClick={handleBack}>Back</button>
+          <button type="submit" className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition duration-200">Submit</button>
           </div>
         </form>
       </div>
