@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../../styles/Dashboard.module.css";
 import Roadmap from '../../components/roadmap'
+import HumeStream from "@/app/components/HumeStream";
 
 export default function Dashboard() {
   const [id, setId] = useState('');
@@ -30,6 +31,7 @@ export default function Dashboard() {
     document.cookie = 'formData=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'; // Delete cookie
     router.push('/'); // Redirect to home after logout
   };
+  
 
   return (
     <main className={styles.main}>
@@ -61,12 +63,14 @@ export default function Dashboard() {
             <div className={styles.timeline}></div>
             <Roadmap></Roadmap>
           </div>
-        
          
           <div className={styles.gridRight}>
           <div className={`${styles.gridItem} ${styles.concentration}`}>
-            <h3>Concentration Level</h3>
-            <div className={styles.chart}></div>
+    <h3 className="text-white">Concentration Level</h3>
+    <div className={`${styles.chart} rounded-lg bg-transparent`}>
+              <HumeStream/>
+              {/* <iframe src="/humetest" frameborder="0"></iframe> */}
+            </div>
           </div>
           <div className={`${styles.gridItem} ${styles.voiceAi}`}>
             <h3>Voice AI</h3>

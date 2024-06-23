@@ -29,8 +29,10 @@ const LiveChart: React.FC<LiveChartProps> = ({ data }) => {
       {
         label: 'Concentration',
         data,
-        borderColor: 'rgba(75, 192, 192, 1)',
+        // borderColor: 'rgba(75, 192, 192, 1)',
+        borderColor: 'rgba(173, 216, 230, 1)',
         // backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        backgroundColor: 'rgba(75, 192, 192, 0)',
         fill: true,
         tension: 0.1,
       },
@@ -39,35 +41,43 @@ const LiveChart: React.FC<LiveChartProps> = ({ data }) => {
 
   const chartOptions = {
     responsive: true,
-    maintainAspectRatio: true, // Add this to maintain the aspect ratio of the chart
+    maintainAspectRatio: false, // Add this to maintain the aspect ratio of the chart
     plugins: {
       legend: {
+        labels: {
+          color: 'white', 
+        },
         position: 'bottom',
       },
       title: {
-        display: true,
+        display: false,
         text: 'Live Concentration Metrics',
       },
     },
     scales: {
       x: {
+        ticks: {
+          color: 'white', 
+        },
+        title: {
+          color: 'white',
+          display: true,
+          text: 'Time',
+        },
         type: 'time',
         time: {
           unit: 'second',
           stepSize: 10,
           displayFormats: {
-            second: 'h:mm:ss a', // Format for displaying time
+            second: 'mm:ss', // Format for displaying time
           },
-        },
-        title: {
-          display: true,
-          text: 'Time',
         },
       },
       y: {
-        title: {
-          display: true,
+        ticks: {
+          display: false,
           text: 'Concentration',
+          color: 'white',
         },
         suggestedMin: 0,
         suggestedMax: 1,
@@ -82,7 +92,7 @@ const LiveChart: React.FC<LiveChartProps> = ({ data }) => {
   }, [data]);
 
   return (
-    <div className="chart-container">
+    <div className="chart-  ">
       <Line ref={chartRef} data={chartData} options={chartOptions} />
     </div>
   );

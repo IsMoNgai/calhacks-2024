@@ -2,12 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< Updated upstream
 
-
-
-=======
->>>>>>> Stashed changes
 * {
   /* box-sizing: border-box; */
   padding: 0;
@@ -57,8 +52,8 @@ h3 {
   color: #f8f8f8;
 } */
 
-canvas {
-  /* border: 1px dotted red; */
+/* canvas {
+  /* border: 1px dotted red; 
   background-color: white;
   border-radius: 0.5rem;
   padding: 0.5rem;
@@ -69,21 +64,20 @@ canvas {
   margin: auto;
   height: 80vh; 
   width: 40vw;
-}
+} */
 
 canvas {
-  /* border: 1px dotted red; */
   background-color: white;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
+  
+    
 }
 
 .chart-container {
-  position: relative;
+  /* position: relative; */
   margin: auto;
-  height: 80vh; 
-  width: 40vw;
-}
+  height: 100vh; 
+  width: 100vw  ;
+} 
 
 .btn-disabled {
   background-color: lightgray;

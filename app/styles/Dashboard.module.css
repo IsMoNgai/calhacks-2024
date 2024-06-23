@@ -151,10 +151,10 @@
   grid-row-start:1;
 }
 
-.chart {
+/* .chart {
   height: 200px;
   background: #333;
-}
+} */
 
 .voiceAi {
   grid-column-start: 3;
