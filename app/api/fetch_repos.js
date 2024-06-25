@@ -1,4 +1,3 @@
-// pages/api/fetch_repos.js
 import { NextApiResponse, NextApiRequest } from 'next';
 import corsMiddleware from '../../lib/cors';
 

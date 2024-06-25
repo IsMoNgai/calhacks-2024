@@ -1,6 +1,6 @@
 // page.tsx
 'use client'
-import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
+import React, { MutableRefObject, useEffect, useMemo, useRef, useState } from 'react';
 import io from 'socket.io-client';
 import LiveChart from './LiveChart';
 import Modal from './Modal';
@@ -23,7 +23,7 @@ export default function HumeStream() {
     socket.on('adhd_emotions', (data: { Concentration: number; Boredom: number; Anxiety: number; Tiredness: number }) => {
       console.log('ADHD emotions:', data);
       setConcentrationMetrics(prevMetrics => [...prevMetrics, data.Concentration].slice(-60)); // Keep only the last 60 minutes of data
-      if (data.Boredom > 0.64) {
+      if (data.Boredom > 0.48 ) {
         setIsModalOpen(true); // Open the modal if Boredom is greater than 0.68
       }
     });
@@ -97,3 +97,28 @@ export default function HumeStream() {
     </div>
   );
 }
+
+
+export function useHumeStream() {
+    const [metrics, setMetrics] = useState({ Concentration: 0, Boredom: 0, Anxiety: 0, Tiredness: 0 });
+    const socket = useMemo(() => io('http://localhost:5000'), []);
+  
+    useEffect(() => {
+      socket.on('connect', () => console.log('Connected to server'));
+  
+      socket.on('adhd_emotions', (data) => {
+        console.log('ADHD emotions:', data);
+        setMetrics(data);
+      });
+  
+      socket.on('error', (error) => console.error('Error:', error));
+  
+      return () => {
+        socket.off('connect');
+        socket.off('adhd_emotions');
+        socket.off('error');
+      };
+    }, [socket]);
+  
+    return metrics;
+  }
